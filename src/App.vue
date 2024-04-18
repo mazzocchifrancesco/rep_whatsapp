@@ -1,5 +1,6 @@
 <script>
 import functions from "./functions.js";
+import { store } from "./store.js"
 export default {
 
   created() {
@@ -13,9 +14,12 @@ export default {
     this.checkMex = functions.checkMex;
     this.now = functions.now;
     this.changeData = functions.changeData;
+    this.keepDraftMessages = functions.keepDraftMessages;
+
   },
   data() {
     return {
+      store,
       contacts: [
         {
           name: 'Michele',
@@ -334,7 +338,7 @@ export default {
 
             <!-- barra messaggio -->
             <input @keyup.enter="newMessage(posizioneOggetto)" type="text" class="form-control rounded-0"
-              id="floatingInput" placeholder="name@example.com">
+              id="floatingInput" placeholder="name@example.com" @input="this.keepDraftMessages(posizioneOggetto)">
             <label for="floatingInput">Scrivi un messaggio</label>
           </div>
 

@@ -1,6 +1,13 @@
 export default {
     switchContact(index) {
         this.posizioneOggetto = index;
+        document.getElementById("floatingInput").value = "";
+        if (this.store.draftMessages[index] === undefined) {
+            document.getElementById("floatingInput").value = "";
+        } else {
+            document.getElementById("floatingInput").value = this.store.draftMessages[index];
+
+        }
     },
     newMessage(index) {
         // recupero ora corrente
@@ -196,5 +203,9 @@ export default {
             }
             )
         );
+    },
+    keepDraftMessages(index) {
+        let text = document.getElementById("floatingInput").value;
+        this.store.draftMessages[index] = text;
     }
 }
