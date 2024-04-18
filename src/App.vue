@@ -283,7 +283,7 @@ export default {
               <div class="d-flex">
                 <!-- pro pic -->
                 <img :src=contacts[i].avatar alt="" class="rounded-circle contactImg">
-                <div>
+                <div class="text-start">
                   <!-- nome contatto -->
                   <p class="fw-medium">{{ contacts[i].name }}</p>
                   <!-- ultimo messaggio -->
