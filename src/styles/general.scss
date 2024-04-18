@@ -1,0 +1,141 @@
+@import "bootstrap/scss/bootstrap";
+
+:root {
+    --silentHeight: 5rem;
+    --headerHeight: 5rem;
+    --appHeight: 90vh;
+}
+
+/* contenitore */
+p {
+    margin: 0;
+}
+
+body {
+    height: 95vh;
+    background: rgb(218, 219, 213);
+    background: linear-gradient(0deg, rgba(218, 219, 213, 1) 80%, rgba(34, 193, 195, 1) 80%);
+}
+
+#app {
+    display: flex;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.finestra {
+    height: var(--appHeight);
+}
+
+#mainRow {
+    height: calc(100% - var(--headerHeight));
+}
+
+/* header app */
+#headRow>div {
+    background-color: #eaeaea;
+    height: var(--headerHeight);
+    border: 0.5px solid lightgrey;
+}
+
+.headerIcon>a {
+    color: #b1b1b1;
+}
+
+.selectedContact {
+    height: 100%;
+}
+
+.subText {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+/* sezione chat contatti */
+#silentNotif {
+    background-color: #8edafc;
+    padding: 1rem;
+    height: var(--silentHeight);
+
+}
+
+.fa-bell-slash {
+    font-size: 1.5rem;
+    color: #8edafc;
+}
+
+#silentIcon {
+    aspect-ratio: 1;
+    height: 3rem;
+}
+
+#chatContainer {
+    height: calc(var(--appHeight) - var(--headerHeight) - var(--silentHeight) - 58px);
+}
+
+.contact {
+    height: 5rem;
+    background-color: #ffffff;
+    border: 0.5px solid #f7f7f7;
+}
+
+.data {
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-align: right;
+}
+
+.contactImg {
+    height: 80%;
+    aspect-ratio: 1;
+    margin: auto 1rem;
+}
+
+.selected {
+    background-color: #e9ebeb;
+}
+
+/****************************** main section ***********************/
+#main {
+    background-image: url(src/assets/img/mine.jpg);
+}
+
+#chatBox {
+    padding: 4rem 4rem;
+}
+
+.mexRecived {
+    background-color: #ffffff;
+    align-self: start;
+}
+
+.mexSent {
+    background-color: #d5f9ba;
+    align-self: end;
+}
+
+.mex {
+    min-width: 5rem;
+    max-width: 18rem;
+}
+
+#btnDrop {
+    height: 1rem;
+}
+
+/************ input *****************/
+.iconBox {
+    width: 20%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconBox>a {
+    color: #6b7376;
+}
+
+#inputBox {
+    background-color: #f3eeea;
+}
