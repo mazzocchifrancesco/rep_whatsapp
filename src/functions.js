@@ -37,7 +37,8 @@ export default {
         // creo timer e genero la risposta al messaggio
         setTimeout(() => {
             this.replyMessage("ok", index);
-        }, 1000);
+        }, 2000);
+        this.getLastDataTime()
     },
     replyMessage(text, index) {
         // creo oggetto messaggio di risposta
@@ -112,11 +113,22 @@ export default {
         this.lastDay = []
         // calcolo la posizione dell'ultimo messaggio per ogni contatto
         for (let i = 0; i < this.contacts.length; i++) {
-            // calcolo la posizione dell'ultimo messaggio
-            const lastPos = this.contacts[i].messages.length - 1;
-            // pusho data e ora ultimo messaggio per ultimo accesso
-            this.lastData.push(this.contacts[i].messages[lastPos].time);
-            this.lastDay.push(this.contacts[i].messages[lastPos].date.substr(0, 10));
+            // calcolo la posizione dell'ultimo messaggio ricevuto, per calcolare un "verosimile" ultimo accesso
+            for (let a = 0; a < this.contacts[i].messages.length; a++) {
+
+                let lastMexIndex = this.contacts[i].messages.length - (a + 1);
+
+                if (this.contacts[i].messages[lastMexIndex].status == 'received') {
+                    // pusho data e ora ultimo messaggio per ultimo accesso
+                    this.lastData.push(this.contacts[i].messages[lastMexIndex].time);
+                    this.lastDay.push(this.contacts[i].messages[lastMexIndex].date.substr(0, 10));
+                    break;
+                } else {
+                    //todo prevedere caso chat nuova o con solo un mex inviato (per questa replica potrei anche non farlo)
+                }
+
+            }
+
         }
     },
     checkMex() {
